@@ -1,15 +1,16 @@
 import '../styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
+import { alchemyRpcUrls, chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from 'wagmi/providers/public';
 import type { AppProps } from 'next/app';
+import { alchemyProvider } from "wagmi/providers/alchemy";
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
   [
-    jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/eth' }) }),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID as string }),
     publicProvider(),
   ]
 );
