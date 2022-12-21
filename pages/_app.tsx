@@ -7,7 +7,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import type { AppProps } from 'next/app';
 
 const { chains, provider } = configureChains(
-  [chain.mainnet],
+  [chain.polygonMumbai],
   [
     jsonRpcProvider({ rpc: () => ({ http: 'https://rpc.ankr.com/eth' }) }),
     publicProvider(),
@@ -15,7 +15,7 @@ const { chains, provider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
+  appName: 'DePub',
   chains,
 });
 
