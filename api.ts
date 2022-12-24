@@ -26,6 +26,7 @@ export const exploreProfiles = gql`
         }
         stats {
           totalFollowers
+          totalFollowing
         }
       }
     }
